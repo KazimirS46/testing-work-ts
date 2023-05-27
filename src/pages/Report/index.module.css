@@ -1,0 +1,16 @@
+.contentHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+}
+
+.contentHead h3 {
+  margin: 0;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+  opacity: 0.8;
+}

@@ -1,0 +1,58 @@
+.contentHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+}
+
+.contentHead h3 {
+  margin: 0;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+  opacity: 0.8;
+}
+
+.contentHead button {
+  width: 141px;
+  height: 40px;
+  left: 1558px;
+  top: 119px;
+  background: #edbc4a;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.contentHead button:hover {
+  background: #edb32b;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.4);
+}
+
+.contentHead button span {
+  font-family: 'Poppins';
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.contentContainer {
+  width: 100%;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.contentFooter {
+  display: flex;
+  padding: 22px 0;
+}
+
+.pagination {
+  margin-left: auto;
+}

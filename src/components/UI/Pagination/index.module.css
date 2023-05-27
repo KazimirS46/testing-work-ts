@@ -1,0 +1,92 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  transition: 0.3s;
+  text-decoration: none;
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: black;
+}
+
+.pagination button:hover {
+  background-color: #edb32b;
+  color: #ffffff;
+}
+
+.pagination .pageLink {
+  background-color: #edb32b;
+  color: #ffffff;
+}
+
+.pagination .btnNext,
+.pagination .btnPrev {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  border: none;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.pagination .btnNext:hover,
+.pagination .btnPrev:hover {
+  background-color: rgba(0, 0, 0, 0.291);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.pagination .btnNext::after,
+.pagination .btnNext::before,
+.pagination .btnPrev::after,
+.pagination .btnPrev::before {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 3px;
+  background-color: black;
+}
+
+.pagination .btnPrev::after,
+.pagination .btnPrev::before {
+  left: 30%;
+}
+
+.pagination .btnPrev::after {
+  top: 17px;
+  transform: rotate(45deg);
+}
+.pagination .btnPrev::before {
+  top: 11px;
+  transform: rotate(-45deg);
+}
+
+.pagination .btnNext::after,
+.pagination .btnNext::before {
+  left: 34%;
+}
+
+.pagination .btnNext::after {
+  top: 17px;
+  transform: rotate(-45deg);
+}
+.pagination .btnNext::before {
+  top: 11px;
+  transform: rotate(45deg);
+}

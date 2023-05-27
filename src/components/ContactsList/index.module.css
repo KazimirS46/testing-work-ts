@@ -1,0 +1,128 @@
+table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+tr:not(tr:first-child) {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+th {
+  padding: 12px 0 12px 9px;
+}
+
+th,
+td {
+  text-align: left;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  white-space: nowrap;
+  color: #000000;
+  background: #fff;
+}
+
+td {
+  padding: 25px 9px;
+}
+
+th span {
+  display: block;
+  width: 90%;
+  overflow: hidden;
+}
+
+/* th:not(th:last-child) span {
+  border-right: 2px solid black;
+} */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+  overflow: hidden;
+}
+
+th .content:not(th:last-child) {
+  border-right: 2px solid black;
+}
+
+.firstHead {
+  width: 3.3vw;
+}
+
+.firstHead > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.firstHead input {
+  position: absolute;
+  z-index: -50;
+  opacity: 0;
+}
+.firstHead input + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+.firstHead input + label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.firstHead input:checked + label::before {
+  background: url('../../assets/checkIcon.svg');
+  background-size: 1em 1em;
+}
+
+.secondHead {
+  width: 110px;
+}
+
+.sixthHead {
+  width: 175px;
+}
+
+.fifthHead {
+  width: 160px;
+}
+
+.seventhHead {
+  width: 90px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.seventhHead button {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

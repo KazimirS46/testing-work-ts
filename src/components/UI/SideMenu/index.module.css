@@ -1,0 +1,63 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 11px 0;
+  column-gap: 9px;
+  padding-left: 35px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+a::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #edbc4a;
+  transform: scaleY(0);
+  transition: 0.2s ease-in-out;
+}
+
+a span {
+  font-family: 'Poppins';
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  opacity: 0.8;
+}
+
+a:hover {
+  background: rgba(237, 188, 74, 0.2);
+}
+
+a:hover:before {
+  transform: scaleY(100%);
+}
+
+a:focus {
+  background: rgba(237, 188, 74, 0.2);
+  transform: scaleY(100%);
+}
+a:focus:before {
+  transform: scaleY(100%);
+}
+
+.active {
+  background: rgba(237, 188, 74, 0.2);
+  transform: scaleY(100%);
+}
+
+.active:before {
+  transform: scaleY(100%);
+}

@@ -1,0 +1,152 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 654px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.mainLogo {
+  margin: 0;
+  margin-bottom: 65px;
+  font-family: 'Inter';
+  font-size: 64px;
+  line-height: 77px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.textGreeting {
+  margin: 0;
+  margin-bottom: 13px;
+  max-width: 530px;
+  font-family: 'Poppins';
+  font-size: 36px;
+  line-height: 142%;
+}
+
+.authorizationForm {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  font-family: 'Roboto Condensed';
+}
+
+.authorizationForm label {
+  display: block;
+  margin-bottom: 11px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  color: #292929;
+}
+
+.authorizationForm input {
+  width: 580px;
+  padding: 23px 24px;
+  margin-bottom: 23px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.authorizationForm input::placeholder {
+  color: #000;
+}
+
+.authorizationForm input:last-child {
+  margin-bottom: 47px;
+}
+
+.authorizationForm input:hover {
+  border: 1px solid #000;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.authorizationForm input:focus {
+  outline: none;
+  border: 1px solid #000;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.warningWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.warningMessage {
+  margin: 0;
+  color: red;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordContainer button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  top: 24px;
+  right: 24px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.passwordContainer img {
+  display: block;
+  width: 24px;
+  height: auto;
+}
+
+.button {
+  width: 180px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 13px 0;
+  background-color: #000;
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.button span {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.button:hover span {
+  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.9);
+}
+
+.button:active {
+  transform: translateY(3px);
+}

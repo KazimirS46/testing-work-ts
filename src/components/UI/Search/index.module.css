@@ -1,0 +1,55 @@
+:root {
+  --main-bg-color: #eeeae7;
+  --bg-color: #ffffff;
+}
+
+.searchField {
+  position: relative;
+  width: 50%;
+}
+
+.searchField img {
+  position: absolute;
+}
+
+.icon {
+  top: 17px;
+  left: 21px;
+}
+
+.clear {
+  width: 24px;
+  height: 24px;
+  top: 15px;
+  right: 17px;
+}
+
+.searchField input {
+  width: 100%;
+  margin: 0;
+  padding: 15px 50px 15px 51px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  border: none;
+  outline: none;
+  color: #000;
+  border-radius: 6px;
+  background-color: var(--main-bg-color);
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+  opacity: 0.5;
+}
+
+input:hover {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
