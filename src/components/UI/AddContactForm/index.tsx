@@ -9,7 +9,7 @@ interface IProps {
   handleCloseModal: () => void;
 }
 
-export const AddContact: FC<IProps> = (props) => {
+export const AddContactForm: FC<IProps> = (props) => {
   const TEXT = {
     pageTitle: 'Add New Contact',
     nameLable: 'Client Name',

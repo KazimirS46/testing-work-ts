@@ -66,8 +66,17 @@ export const userSlice = createSlice({
         (user) => user.id !== action.payload
       );
     },
+    changeContact: (state, action: PayloadAction<IUserContact>) => {
+      const contactIndex = state.activeUser.contacts.findIndex(
+        (user) => user.id === action.payload.id
+      );
+      state.activeUser.contacts[contactIndex].name = action.payload.name;
+      state.activeUser.contacts[contactIndex].email = action.payload.email;
+      state.activeUser.contacts[contactIndex].phone = action.payload.phone;
+      state.activeUser.contacts[contactIndex].address = action.payload.address;
+    },
   },
 });
 
-export const { check, logOut, addContact, deleteContact } = userSlice.actions;
+export const { check, logOut, addContact, deleteContact, changeContact } = userSlice.actions;
 export default userSlice.reducer;

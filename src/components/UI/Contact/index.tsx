@@ -6,6 +6,7 @@ import delIcon from './assets/delButton.svg';
 import { Modal } from '../Modal';
 import { useAppDispatch } from '../../../store/reduxHooks';
 import { deleteContact } from '../../../store/slice/userSlice';
+import { ChangingContactForm } from '../СhangingСontact';
 
 export const Contact: FC<IContact> = (props) => {
   const { userData, checkedState, handleOnChange, index } = props;
@@ -59,8 +60,7 @@ export const Contact: FC<IContact> = (props) => {
         </td>
       </tr>
       <Modal isOpen={open} onClose={() => setOpen(false)}>
-        <span>Добавить форму с изменением контакта</span>
-        {/* <ChangeContactForm data={userData} close={() => setOpen(false)} /> */}
+        <ChangingContactForm data={userData} close={() => setOpen(false)} />
       </Modal>
     </>
   );
