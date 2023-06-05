@@ -7,6 +7,7 @@ import { Pagination } from '../../components/UI/Pagination';
 import { ContactsList } from '../../components/ContactsList';
 import { sortContacts } from '../../utils/sortContacts';
 import { IUserContact } from '../../types';
+import { useAppSelector } from '../../store/reduxHooks';
 
 export const TotalContacts: FC = () => {
   const TEXT = {
@@ -14,7 +15,7 @@ export const TotalContacts: FC = () => {
     buttonName: 'Add +',
   };
 
-  const contacts: IUserContact[] = [];
+  const contacts: IUserContact[] = useAppSelector((state) => state.user.activeUser.contacts);
 
   // открытие модалки
   const [isOpenAdd, setIsOpenAdd] = useState<Boolean>(false);
