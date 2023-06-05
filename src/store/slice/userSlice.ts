@@ -17,7 +17,7 @@ interface IAuthState {
   regUsers: IUser[];
   result: Boolean;
   message: String;
-  activeUser: {} | IUser;
+  activeUser: IUser | { name: ''; post: '' };
   counter: Number;
 }
 
@@ -25,7 +25,7 @@ const initialState: IAuthState = {
   regUsers: users,
   result: false,
   message: '',
-  activeUser: {},
+  activeUser: { name: '', post: '' },
   counter: 0,
 };
 
@@ -55,7 +55,7 @@ export const userSlice = createSlice({
     logOut: (state) => {
       state.result = false;
       state.message = '';
-      state.activeUser = {};
+      state.activeUser = { name: '', post: '' };
     },
   },
 });
