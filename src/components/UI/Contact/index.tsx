@@ -4,13 +4,16 @@ import { IContact } from '../../../types';
 import penIcon from './assets/penButton.svg';
 import delIcon from './assets/delButton.svg';
 import { Modal } from '../Modal';
+import { useAppDispatch } from '../../../store/reduxHooks';
+import { deleteContact } from '../../../store/slice/userSlice';
 
 export const Contact: FC<IContact> = (props) => {
   const { userData, checkedState, handleOnChange, index } = props;
+  const dispatch = useAppDispatch();
   const [open, setOpen] = useState<Boolean>(false);
 
   const onDelete = () => {
-    console.log(`Удалить контакт ${userData.id}`);
+    dispatch(deleteContact(userData.id));
   };
   return (
     <>

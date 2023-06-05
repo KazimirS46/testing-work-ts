@@ -61,8 +61,13 @@ export const userSlice = createSlice({
       state.activeUser.contacts = [...state.activeUser.contacts, action.payload];
       state.counter = state.counter++;
     },
+    deleteContact: (state, action: PayloadAction<number>) => {
+      state.activeUser.contacts = state.activeUser.contacts.filter(
+        (user) => user.id !== action.payload
+      );
+    },
   },
 });
 
-export const { check, logOut, addContact } = userSlice.actions;
+export const { check, logOut, addContact, deleteContact } = userSlice.actions;
 export default userSlice.reducer;
