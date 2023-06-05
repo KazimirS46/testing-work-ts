@@ -6,12 +6,15 @@ import { SearchContext } from '../../context';
 import { SideMenu } from '../UI/SideMenu';
 import { Search } from '../UI/Search';
 import { UserProfile } from '../UI/UserProfile';
+import { useAppDispatch } from '../../store/reduxHooks';
+import { logOut } from '../../store/slice/userSlice';
 
 export const Layout: FC = () => {
   const TEXT = {
     title: 'LOGO',
     logButtonName: 'Log out',
   };
+  const dispatch = useAppDispatch();
 
   const [searchValue, setSearchValue] = useState<string>('');
 
@@ -25,7 +28,7 @@ export const Layout: FC = () => {
           <SideMenu />
         </div>
         <div className={styles.logOutButton}>
-          <button type='button' onClick={() => console.log('Выход')}>
+          <button type='button' onClick={() => dispatch(logOut())}>
             <img src={logOutIcon} alt='Выйти' />
             <span>{TEXT.logButtonName}</span>
           </button>
