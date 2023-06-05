@@ -8,6 +8,7 @@ import { ContactsList } from '../../components/ContactsList';
 import { sortContacts } from '../../utils/sortContacts';
 import { IUserContact } from '../../types';
 import { useAppSelector } from '../../store/reduxHooks';
+import { AddContact } from '../../components/UI/AddContact';
 
 export const TotalContacts: FC = () => {
   const TEXT = {
@@ -46,8 +47,7 @@ export const TotalContacts: FC = () => {
             <span>{TEXT.buttonName}</span>
           </button>
           <Modal isOpen={isOpenAdd} onClose={handleCloseModal}>
-            {/* добавить AddContact */}
-            <div>Добавить контакт</div>
+            <AddContact handleCloseModal={handleCloseModal} />
           </Modal>
         </div>
         <div className={styles.contentContainer}>

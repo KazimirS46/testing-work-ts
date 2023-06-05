@@ -1,4 +1,4 @@
-import { IUser } from '../../types';
+import { IUser, IUserContact } from '../../types';
 import users from '../../JSON/users.json';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
@@ -18,7 +18,7 @@ interface IAuthState {
   result: Boolean;
   message: String;
   activeUser: IUser;
-  counter: Number;
+  counter: number;
 }
 
 const initialState: IAuthState = {
@@ -57,8 +57,12 @@ export const userSlice = createSlice({
       state.message = '';
       state.activeUser = { login: '', password: '', name: '', gender: '', post: '', contacts: [] };
     },
+    addContact: (state, action: PayloadAction<IUserContact>) => {
+      state.activeUser.contacts = [...state.activeUser.contacts, action.payload];
+      state.counter = state.counter++;
+    },
   },
 });
 
-export const { check, logOut } = userSlice.actions;
+export const { check, logOut, addContact } = userSlice.actions;
 export default userSlice.reducer;
