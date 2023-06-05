@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 import styles from './index.module.css';
 import showPassword from './assets/Show_password_button.svg';
+import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
+import { check } from '../../store/slice/userSlice';
 
 export const LoginPage: FC = () => {
   const TEXT = {
@@ -9,8 +11,8 @@ export const LoginPage: FC = () => {
     passwordLabel: 'Password',
     buttonLabel: 'SIGN IN',
   };
-
-  const { message, result } = { message: 'Йобаный Рот', result: false };
+  const dispatch = useAppDispatch();
+  const { message, result } = useAppSelector((state) => state.user);
 
   // Настройки поля пароля
 
@@ -20,7 +22,7 @@ export const LoginPage: FC = () => {
   // Авторизация
 
   const [loginValue, setLoginValue] = useState<string>('');
-  const [passValue, setPassValue] = useState<any>('');
+  const [passValue, setPassValue] = useState<string>('');
 
   const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassValue(event.target.value);
@@ -31,7 +33,12 @@ export const LoginPage: FC = () => {
   };
 
   const checkAuth = () => {
-    console.log('Сим Сим - откройся!');
+    dispatch(
+      check({
+        login: loginValue,
+        password: passValue,
+      })
+    );
   };
 
   return (

@@ -5,9 +5,10 @@ import { TotalContacts } from './pages/TotalContacts';
 import { Calendar } from './pages/Calendar';
 import { Report } from './pages/Report';
 import { LoginPage } from './pages/LoginPage';
+import { useAppSelector } from './store/reduxHooks';
 
 const App: FC = () => {
-  const auth: Boolean = true;
+  const auth: Boolean = useAppSelector((state) => state.user.result);
   return (
     <>
       {auth ? (
