@@ -1,31 +1,32 @@
-import { IUser, IUserContact } from '../../types';
-import users from '../../JSON/users.json';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IUser, IUserContact } from '../../types';
+import { IAuthData, IAuthState, ResponseMessage } from '../types';
+import users from '../../JSON/users.json';
 
-enum ResponseMessage {
-  Greeting = 'Доброе время суток епта',
-  Login = 'Неправильный логин',
-  Paasword = 'Неправильный пароль',
-}
+const auth = localStorage.length !== 0;
+const user: IUser = {
+  login: '',
+  password: '',
+  name: '',
+  gender: '',
+  post: '',
+  contacts: [],
+};
 
-interface IAuthData {
-  login: String;
-  password: String;
-}
-
-interface IAuthState {
-  regUsers: IUser[];
-  result: Boolean;
-  message: String;
-  activeUser: IUser;
-  counter: number;
+if (auth) {
+  user.login = localStorage.getItem('login') || '';
+  user.password = localStorage.getItem('pass') || '';
+  user.name = localStorage.getItem('name') || '';
+  user.gender = localStorage.getItem('gender') || '';
+  user.post = localStorage.getItem('post') || '';
+  user.contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
 }
 
 const initialState: IAuthState = {
   regUsers: users,
-  result: false,
+  result: auth ? true : false,
   message: '',
-  activeUser: { login: '', password: '', name: '', gender: '', post: '', contacts: [] },
+  activeUser: user,
   counter: 0,
 };
 
@@ -34,7 +35,9 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     check: (state, action: PayloadAction<IAuthData>) => {
-      const user = state.regUsers.find((user) => user.login === action.payload.login);
+      const user = state.regUsers.find(
+        (user) => user.login === action.payload.login
+      );
 
       if (!user) {
         state.result = false;
@@ -48,6 +51,12 @@ export const userSlice = createSlice({
           state.message = ResponseMessage.Greeting;
           state.activeUser = user;
           state.counter = user.contacts.length;
+          localStorage.setItem('login', user.login);
+          localStorage.setItem('password', user.password);
+          localStorage.setItem('name', user.name);
+          localStorage.setItem('gender', user.gender);
+          localStorage.setItem('post', user.post);
+          localStorage.setItem('contacts', JSON.stringify(user.contacts));
         }
       }
     },
@@ -55,10 +64,21 @@ export const userSlice = createSlice({
     logOut: (state) => {
       state.result = false;
       state.message = '';
-      state.activeUser = { login: '', password: '', name: '', gender: '', post: '', contacts: [] };
+      state.activeUser = {
+        login: '',
+        password: '',
+        name: '',
+        gender: '',
+        post: '',
+        contacts: [],
+      };
+      localStorage.clear();
     },
     addContact: (state, action: PayloadAction<IUserContact>) => {
-      state.activeUser.contacts = [...state.activeUser.contacts, action.payload];
+      state.activeUser.contacts = [
+        ...state.activeUser.contacts,
+        action.payload,
+      ];
       state.counter = state.counter++;
     },
     deleteContact: (state, action: PayloadAction<number>) => {
@@ -78,5 +98,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { check, logOut, addContact, deleteContact, changeContact } = userSlice.actions;
+export const { check, logOut, addContact, deleteContact, changeContact } =
+  userSlice.actions;
 export default userSlice.reducer;

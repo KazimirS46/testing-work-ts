@@ -22,6 +22,7 @@ const App: FC = () => {
       ) : (
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
+          <Route path='*' element={<h1>Error</h1>}></Route>
         </Routes>
       )}
     </>
