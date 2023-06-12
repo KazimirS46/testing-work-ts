@@ -14,12 +14,15 @@ const user: IUser = {
 };
 
 if (auth) {
-  user.login = localStorage.getItem('login') || '';
-  user.password = localStorage.getItem('pass') || '';
-  user.name = localStorage.getItem('name') || '';
-  user.gender = localStorage.getItem('gender') || '';
-  user.post = localStorage.getItem('post') || '';
-  user.contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
+  const { login, password, name, gender, post, contacts } = JSON.parse(
+    localStorage.getItem('user') || '{}'
+  );
+  user.login = login;
+  user.password = password;
+  user.name = name;
+  user.gender = gender;
+  user.post = post;
+  user.contacts = contacts;
 }
 
 const initialState: IAuthState = {
@@ -51,12 +54,7 @@ export const userSlice = createSlice({
           state.message = ResponseMessage.Greeting;
           state.activeUser = user;
           state.counter = user.contacts.length;
-          localStorage.setItem('login', user.login);
-          localStorage.setItem('password', user.password);
-          localStorage.setItem('name', user.name);
-          localStorage.setItem('gender', user.gender);
-          localStorage.setItem('post', user.post);
-          localStorage.setItem('contacts', JSON.stringify(user.contacts));
+          localStorage.setItem('user', JSON.stringify(user));
         }
       }
     },
@@ -90,10 +88,7 @@ export const userSlice = createSlice({
       const contactIndex = state.activeUser.contacts.findIndex(
         (user) => user.id === action.payload.id
       );
-      state.activeUser.contacts[contactIndex].name = action.payload.name;
-      state.activeUser.contacts[contactIndex].email = action.payload.email;
-      state.activeUser.contacts[contactIndex].phone = action.payload.phone;
-      state.activeUser.contacts[contactIndex].address = action.payload.address;
+      state.activeUser.contacts[contactIndex] = action.payload;
     },
   },
 });
